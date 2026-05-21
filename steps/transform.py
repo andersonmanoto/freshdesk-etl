@@ -17,6 +17,7 @@ from steps.extract import LookupDicts
 # Helpers internos
 # ---------------------------------------------------------------------------
 
+
 def _resolve_agent(t: dict, dict_agents: dict) -> str | None:
     responder_id = t.get("responder_id")
     return dict_agents.get(responder_id) if responder_id else None
@@ -45,7 +46,8 @@ def _calc_interval_days(ticket: dict, venda: dict) -> int | None:
     except Exception as exc:
         logger.warning(
             "[Transform] Erro ao calcular interval_days para ticket {}: {}",
-            ticket.get("id"), exc,
+            ticket.get("id"),
+            exc,
         )
         return None
 
@@ -107,6 +109,7 @@ def _build_row(
 # Função pública
 # ---------------------------------------------------------------------------
 
+
 def transform_tickets(
     raw_tickets: list[dict],
     lookup_dicts: LookupDicts,
@@ -141,11 +144,13 @@ def transform_tickets(
             errors += 1
             logger.error(
                 "[Transform] Falha ao processar ticket {} — ignorado. Erro: {}",
-                ticket.get("id"), exc,
+                ticket.get("id"),
+                exc,
             )
 
     logger.info(
         "[Transform] Concluído — {} rows gerados, {} erros.",
-        len(payload), errors,
+        len(payload),
+        errors,
     )
     return payload, latest_updated

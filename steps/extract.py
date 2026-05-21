@@ -28,13 +28,15 @@ def sync_agents() -> None:
     for ag in raw_agents:
         contact = ag.get("contact", {})
         email = contact.get("email") or ""
-        payload.append({
-            "freshdesk_agent_id": ag["id"],
-            "name": contact.get("name"),
-            "email": email or None,
-            "active": contact.get("active", True),
-            "team": _resolve_team(email),
-        })
+        payload.append(
+            {
+                "freshdesk_agent_id": ag["id"],
+                "name": contact.get("name"),
+                "email": email or None,
+                "active": contact.get("active", True),
+                "team": _resolve_team(email),
+            }
+        )
 
     if payload:
         supabase.table("cs_agents").upsert(
@@ -63,7 +65,9 @@ def load_lookup_dicts() -> LookupDicts:
         row["freshdesk_agent_id"]: row["id"] for row in res_agents.data
     }
 
-    res_reasons = supabase.table("cs_cancellation_reasons").select("id, reason").execute()
+    res_reasons = (
+        supabase.table("cs_cancellation_reasons").select("id, reason").execute()
+    )
     dict_reasons: dict[str, str] = {
         row["reason"].lower(): row["id"] for row in res_reasons.data
     }
@@ -75,9 +79,12 @@ def load_lookup_dicts() -> LookupDicts:
 
     logger.debug(
         "[Extract] Lookups carregados — agents: {}, reasons: {}, steps: {}",
-        len(dict_agents), len(dict_reasons), len(dict_steps),
+        len(dict_agents),
+        len(dict_reasons),
+        len(dict_steps),
     )
     return dict_agents, dict_reasons, dict_steps
+
 
 def sync_lookup_fields() -> None:
     """
@@ -93,7 +100,9 @@ def sync_lookup_fields() -> None:
     for field_name, (table, column) in FIELD_TO_LOOKUP_TABLE.items():
         field = field_map.get(field_name)
         if not field:
-            logger.warning("[Extract] Field '{}' não encontrado no Freshdesk.", field_name)
+            logger.warning(
+                "[Extract] Field '{}' não encontrado no Freshdesk.", field_name
+            )
             continue
 
         choices = field.get("choices", [])
@@ -103,4 +112,9 @@ def sync_lookup_fields() -> None:
 
         payload = [{column: choice} for choice in choices]
         supabase.table(table).upsert(payload, on_conflict=column).execute()
-        logger.info("[Extract] {} — {} choices sincronizados em '{}'.", field_name, len(payload), table)
+        logger.info(
+            "[Extract] {} — {} choices sincronizados em '{}'.",
+            field_name,
+            len(payload),
+            table,
+        )

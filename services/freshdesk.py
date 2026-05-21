@@ -26,7 +26,9 @@ def _is_retryable_http_error(exc: BaseException) -> bool:
     if isinstance(exc, requests.exceptions.HTTPError):
         status = exc.response.status_code if exc.response is not None else 0
         return status in {429, 500, 502, 503, 504}
-    return isinstance(exc, (requests.exceptions.ConnectionError, requests.exceptions.Timeout))
+    return isinstance(
+        exc, (requests.exceptions.ConnectionError, requests.exceptions.Timeout)
+    )
 
 
 @retry(
@@ -51,6 +53,7 @@ def _get(url: str, params: dict | None = None) -> Any:
 # Agentes
 # ---------------------------------------------------------------------------
 
+
 def fetch_agents() -> list[dict]:
     """Retorna todos os agentes cadastrados no Freshdesk."""
     logger.debug("Buscando agentes no Freshdesk...")
@@ -62,6 +65,7 @@ def fetch_agents() -> list[dict]:
 # ---------------------------------------------------------------------------
 # Tickets paginados
 # ---------------------------------------------------------------------------
+
 
 def fetch_tickets_since(updated_since: str) -> list[dict]:
     """
@@ -85,7 +89,12 @@ def fetch_tickets_since(updated_since: str) -> list[dict]:
             break
 
         all_tickets.extend(batch)
-        logger.debug("Página {} → {} tickets (total acumulado: {})", page, len(batch), len(all_tickets))
+        logger.debug(
+            "Página {} → {} tickets (total acumulado: {})",
+            page,
+            len(batch),
+            len(all_tickets),
+        )
 
         if len(batch) < settings.freshdesk_per_page:
             break  # última página parcial — não vale fazer mais um request
@@ -99,9 +108,11 @@ def fetch_tickets_since(updated_since: str) -> list[dict]:
     logger.info("Total de tickets extraídos: {}", len(all_tickets))
     return all_tickets
 
+
 # ---------------------------------------------------------------------------
 # Ticket Fields
 # ---------------------------------------------------------------------------
+
 
 def fetch_ticket_fields() -> list[dict]:
     """Retorna todos os campos de ticket do Freshdesk."""

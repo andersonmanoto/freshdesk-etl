@@ -24,10 +24,14 @@ def build_sales_index(tickets: list[dict]) -> SalesIndex:
     }
 
     if not order_ids:
-        logger.warning("[Enrich] Nenhum order_id encontrado nos tickets — índice de vendas vazio.")
+        logger.warning(
+            "[Enrich] Nenhum order_id encontrado nos tickets — índice de vendas vazio."
+        )
         return {}
 
-    logger.info("[Enrich] Cruzando {} order_ids com a tabela de eventos...", len(order_ids))
+    logger.info(
+        "[Enrich] Cruzando {} order_ids com a tabela de eventos...", len(order_ids)
+    )
 
     supabase = get_supabase()
     ids_list = list(order_ids)
@@ -43,13 +47,20 @@ def build_sales_index(tickets: list[dict]) -> SalesIndex:
             .execute()
         )
         all_rows.extend(res.data)
-        logger.debug("[Enrich] Chunk {}/{} — {} rows retornados.", i // chunk_size + 1, -(-len(ids_list) // chunk_size), len(res.data))
+        logger.debug(
+            "[Enrich] Chunk {}/{} — {} rows retornados.",
+            i // chunk_size + 1,
+            -(-len(ids_list) // chunk_size),
+            len(res.data),
+        )
 
     index: SalesIndex = {ev["order_id"]: ev for ev in all_rows}
     logger.info("[Enrich] {} order_ids encontrados na tabela de eventos.", len(index))
 
     missing = order_ids - index.keys()
     if missing:
-        logger.debug("[Enrich] {} order_ids sem correspondência em events.", len(missing))
+        logger.debug(
+            "[Enrich] {} order_ids sem correspondência em events.", len(missing)
+        )
 
     return index

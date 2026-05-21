@@ -25,7 +25,7 @@ def setup_logger() -> None:
     logger.add(
         "logs/etl_{time:YYYY-MM-DD}.log",
         level="DEBUG",
-        rotation="00:00",       # novo arquivo à meia-noite
+        rotation="00:00",  # novo arquivo à meia-noite
         retention="7 days",
         compression="zip",
         encoding="utf-8",
