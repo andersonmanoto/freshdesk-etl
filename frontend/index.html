@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Performance — Agentes</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #ffffff; --bg-secondary: #f5f5f3; --bg-tertiary: #eeede8;
+    --text-primary: #1a1a18; --text-secondary: #5f5e5a; --text-tertiary: #888780;
+    --border: rgba(0,0,0,0.12); --border-md: rgba(0,0,0,0.22);
+    --radius-md: 8px; --radius-lg: 12px;
+    --green-bg:#EAF3DE;--green-text:#27500A;--green-mid:#1D9E75;
+    --amber-bg:#FAEEDA;--amber-text:#633806;--amber-mid:#EF9F27;
+    --red-bg:#FCEBEB;--red-text:#791F1F;--red-mid:#E24B4A;
+    --purple-bg:#EEEDFE;--purple-text:#3C3489;--purple-mid:#7F77DD;
+    --blue-bg:#E6F1FB;--blue-text:#0C447C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary:#1e1e1c;--bg-secondary:#282826;--bg-tertiary:#313130;
+      --text-primary:#f0efea;--text-secondary:#b4b2a9;--text-tertiary:#888780;
+      --border:rgba(255,255,255,0.1);--border-md:rgba(255,255,255,0.2);
+      --green-bg:#085041;--green-text:#9FE1CB;
+      --amber-bg:#633806;--amber-text:#FAC775;
+      --red-bg:#791F1F;--red-text:#F7C1C1;
+      --purple-bg:#3C3489;--purple-text:#CECBF6;
+      --blue-bg:#0C447C;--blue-text:#B5D4F4;
+    }
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-tertiary); color: var(--text-primary); font-size: 14px; min-height: 100vh; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 220px; flex-shrink: 0; background: var(--bg-primary); border-right: 0.5px solid var(--border); padding: 1.5rem 0; display: flex; flex-direction: column; }
+  .sidebar-brand { padding: 0 1.25rem 1.5rem; border-bottom: 0.5px solid var(--border); margin-bottom: 1rem; }
+  .brand-name { font-size: 15px; font-weight: 500; }
+  .brand-sub  { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+  .nav-section { padding: 0 0.75rem; margin-bottom: 0.5rem; }
+  .nav-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); padding: 0 0.5rem; margin-bottom: 4px; }
+  .nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: var(--radius-md); font-size: 13px; color: var(--text-secondary); cursor: pointer; text-decoration: none; }
+  .nav-item:hover { background: var(--bg-secondary); color: var(--text-primary); }
+  .nav-item.active { background: var(--purple-bg); color: var(--purple-text); font-weight: 500; }
+  .nav-item i { font-size: 16px; }
+  .main { flex: 1; overflow-x: hidden; }
+  .topbar { background: var(--bg-primary); border-bottom: 0.5px solid var(--border); padding: 0.875rem 1.5rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+  .topbar-title { font-size: 15px; font-weight: 500; }
+  .topbar-right { display: flex; align-items: center; gap: 8px; }
+  select, button { font-family: inherit; font-size: 12px; color: var(--text-primary); background: var(--bg-secondary); border: 0.5px solid var(--border-md); border-radius: var(--radius-md); padding: 5px 10px; cursor: pointer; outline: none; }
+  button:hover { background: var(--bg-tertiary); }
+  .content { padding: 1.5rem; }
+  .state-msg { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 13px; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .metric { background: var(--bg-primary); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 14px 16px; }
+  .metric-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .metric-value { font-size: 24px; font-weight: 500; line-height: 1; }
+  .metric-sub { font-size: 12px; margin-top: 5px; color: var(--text-tertiary); }
+  .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .card { background: var(--bg-primary); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; }
+  .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+  .card-title { font-size: 13px; font-weight: 500; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-secondary); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .agent-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .agent-table th { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; padding: 0 0 10px; border-bottom: 0.5px solid var(--border); text-align: left; font-weight: 500; }
+  .agent-table td { padding: 10px 0; border-bottom: 0.5px solid var(--border); font-size: 13px; vertical-align: middle; }
+  .agent-table tr:last-child td { border-bottom: none; }
+  .agent-table tr:hover td { background: var(--bg-secondary); }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; margin-right: 8px; vertical-align: middle; flex-shrink: 0; }
+  .bar-wrap { width: 100%; background: var(--bg-tertiary); border-radius: 99px; height: 5px; margin-top: 4px; }
+  .bar-fill  { height: 5px; border-radius: 99px; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 500; }
+  .pill-green { background: var(--green-bg); color: var(--green-text); }
+  .pill-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .pill-red   { background: var(--red-bg);   color: var(--red-text); }
+  .team-badge { display: inline-block; padding: 1px 6px; border-radius: 99px; font-size: 10px; margin-left: 6px; }
+  .team-tiger    { background: var(--purple-bg); color: var(--purple-text); }
+  .team-helpgrid { background: var(--blue-bg);   color: var(--blue-text); }
+  @media (max-width: 900px) { .sidebar { display: none; } .charts-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">Tiger Offers</div>
+      <div class="brand-sub">CS Dashboard</div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Visão geral</div>
+      <a class="nav-item active" href="#"><i class="ti ti-chart-bar" aria-hidden="true"></i> Performance agentes</a>
+      <a class="nav-item" href="#"><i class="ti ti-ticket" aria-hidden="true"></i> Tickets</a>
+      <a class="nav-item" href="#"><i class="ti ti-trending-up" aria-hidden="true"></i> Retenção</a>
+    </div>
+    <div class="nav-section" style="margin-top:0.5rem;">
+      <div class="nav-label">Relatórios</div>
+      <a class="nav-item" href="#"><i class="ti ti-calendar-stats" aria-hidden="true"></i> Diário</a>
+      <a class="nav-item" href="#"><i class="ti ti-users" aria-hidden="true"></i> Por agente</a>
+      <a class="nav-item" href="#"><i class="ti ti-receipt-refund" aria-hidden="true"></i> Reembolsos</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <span class="topbar-title">Performance — agentes</span>
+      <div class="topbar-right">
+        <select id="filterTeam">
+          <option value="all">Todos os times</option>
+          <option value="tiger">Tiger</option>
+          <option value="helpgrid">HelpGrid</option>
+        </select>
+        <input type="date" id="filterDate" style="font-size:12px;padding:5px 10px;border-radius:8px;border:0.5px solid rgba(0,0,0,0.22);background:var(--bg-secondary);color:var(--text-primary);font-family:inherit;">
+        <button id="btnRefresh"><i class="ti ti-refresh" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Atualizar</button>
+      </div>
+    </div>
+    <div class="content">
+      <div id="stateMsg" class="state-msg">Carregando dados...</div>
+      <div id="dashContent" style="display:none;">
+        <div class="metrics-grid" id="metricsGrid"></div>
+        <div class="charts-row">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Taxa de retenção por agente</span></div>
+            <div style="position:relative;height:220px;"><canvas id="chartRetencao" role="img" aria-label="Taxa de retenção por agente"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Resultado dos tickets</span></div>
+            <div class="legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#1D9E75"></span>Retido</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#EF9F27"></span>Parcial</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#E24B4A"></span>Reembolsado</span>
+            </div>
+            <div style="position:relative;height:185px;"><canvas id="chartResultado" role="img" aria-label="Distribuição dos resultados"></canvas></div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:1.25rem;">
+          <div class="card-header">
+            <span class="card-title">Ranking de agentes</span>
+            <span style="font-size:12px;color:var(--text-tertiary)" id="rankingDate"></span>
+          </div>
+          <table class="agent-table">
+            <thead>
+              <tr>
+                <th style="width:28%">Agente</th>
+                <th style="width:9%">Tickets</th>
+                <th style="width:9%">Resolvidos</th>
+                <th style="width:22%">Taxa retenção</th>
+                <th style="width:14%">Valor retido</th>
+                <th style="width:10%">Reembolsos</th>
+                <th style="width:8%">Status</th>
+              </tr>
+            </thead>
+            <tbody id="agentRows"></tbody>
+          </table>
+        </div>
+        <div class="charts-row">
+          <div class="card">
+            <div class="card-header"><span class="card-title">Chargebacks vs reembolsos</span></div>
+            <div class="legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#E24B4A"></span>Reembolsos</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#BA7517"></span>Chargebacks</span>
+            </div>
+            <div style="position:relative;height:200px;"><canvas id="chartCb" role="img" aria-label="Chargebacks versus reembolsos por agente"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><span class="card-title">Tickets resolvidos vs total</span></div>
+            <div style="position:relative;height:200px;"><canvas id="chartResolved" role="img" aria-label="Tickets resolvidos versus total por agente"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const SUPA_URL = 'https://eagomlcnhjpofqunbedf.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhZ29tbGNuaGpwb2ZxdW5iZWRmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NzgxNTM4NiwiZXhwIjoyMDgzMzkxMzg2fQ.JBcRK3HNHz_hXd2AU-d3uBV9owgq9BO56ml7zr3u3z4';
+
+const AVATAR_COLORS = [
+  { bg:'#EEEDFE', fg:'#3C3489' }, { bg:'#E1F5EE', fg:'#085041' },
+  { bg:'#FAECE7', fg:'#712B13' }, { bg:'#E6F1FB', fg:'#0C447C' },
+  { bg:'#FAEEDA', fg:'#633806' }, { bg:'#FBEAF0', fg:'#72243E' },
+  { bg:'#F1EFE8', fg:'#5F5E5A' },
+];
+const CHART_COLORS = ['#7F77DD','#1D9E75','#D85A30','#378ADD','#EF9F27','#D4537E','#888780'];
+
+const barClr  = r => r >= 0.65 ? '#1D9E75' : r >= 0.50 ? '#EF9F27' : '#E24B4A';
+const pillCls = r => r >= 0.65 ? 'pill-green' : r >= 0.50 ? 'pill-amber' : 'pill-red';
+const pillLbl = r => r >= 0.65 ? 'Bom' : r >= 0.50 ? 'Regular' : 'Atenção';
+const initials = name => name.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase();
+const fmtUSD  = v => '$' + parseFloat(v || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtPct  = r => (parseFloat(r || 0) * 100).toFixed(1) + '%';
+
+let charts = {};
+
+function destroyCharts() {
+  Object.values(charts).forEach(c => c && c.destroy());
+  charts = {};
+}
+
+async function fetchData(date, team) {
+  let url = `${SUPA_URL}/rest/v1/snapshot_daily_cs_agent?select=*,cs_agents(name,team)&snapshot_date=eq.${date}&order=retention_rate.desc`;
+  const res = await fetch(url, {
+    headers: { 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY }
+  });
+  if (!res.ok) throw new Error(`Supabase ${res.status}: ${await res.text()}`);
+  let data = await res.json();
+  if (team !== 'all') data = data.filter(r => r.cs_agents?.team === team);
+  return data;
+}
+
+function renderMetrics(data) {
+  const sum = (key) => data.reduce((s, r) => s + (parseFloat(r[key]) || 0), 0);
+  const totalAttempts = sum('retention_attempts');
+  const totalSaved    = sum('retentions_saved');
+  const overallRate   = totalAttempts > 0 ? totalSaved / totalAttempts : 0;
+
+  const cards = [
+    { label: 'Total tickets',    value: sum('total_tickets').toFixed(0) },
+    { label: 'Resolvidos',       value: sum('tickets_resolved').toFixed(0) },
+    { label: 'Tent. retenção',   value: totalAttempts.toFixed(0) },
+    { label: 'Taxa retenção',    value: fmtPct(overallRate) },
+    { label: 'Valor retido',     value: fmtUSD(sum('retained_value')) },
+    { label: 'Reembolsos',       value: sum('refunds_issued').toFixed(0) },
+  ];
+
+  document.getElementById('metricsGrid').innerHTML = cards.map(c => `
+    <div class="metric">
+      <div class="metric-label">${c.label}</div>
+      <div class="metric-value">${c.value}</div>
+    </div>`).join('');
+}
+
+function renderTable(data, date) {
+  document.getElementById('rankingDate').textContent = date;
+  document.getElementById('agentRows').innerHTML = data.map((r, i) => {
+    const name = r.cs_agents?.name || 'Desconhecido';
+    const team = r.cs_agents?.team || '';
+    const rate = parseFloat(r.retention_rate || 0);
+    const av   = AVATAR_COLORS[i % AVATAR_COLORS.length];
+    return `<tr>
+      <td>
+        <span style="font-size:11px;color:var(--text-tertiary);margin-right:6px;">${i+1}</span>
+        <span class="avatar" style="background:${av.bg};color:${av.fg}">${initials(name)}</span>
+        ${name}
+        <span class="team-badge team-${team}">${team}</span>
+      </td>
+      <td>${r.total_tickets}</td>
+      <td>${r.tickets_resolved}</td>
+      <td>
+        <span style="font-weight:500">${fmtPct(rate)}</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:${Math.min(rate*100,100)}%;background:${barClr(rate)}"></div></div>
+      </td>
+      <td>${fmtUSD(r.retained_value)}</td>
+      <td>${r.refunds_issued}</td>
+      <td><span class="pill ${pillCls(rate)}">${pillLbl(rate)}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderCharts(data) {
+  destroyCharts();
+  const names = data.map(r => r.cs_agents?.name?.split(' ')[0] || '?');
+  const rates = data.map(r => parseFloat((parseFloat(r.retention_rate || 0) * 100).toFixed(1)));
+
+  charts.retencao = new Chart(document.getElementById('chartRetencao'), {
+    type: 'bar',
+    data: {
+      labels: names,
+      datasets: [{ data: rates, backgroundColor: rates.map(r => barClr(r/100)), borderRadius: 4, borderSkipped: false }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { min: 0, max: 100, ticks: { callback: v => v + '%', font: { size: 11 } }, grid: { color: 'rgba(128,128,128,0.08)' } },
+        y: { ticks: { font: { size: 12 } }, grid: { display: false } }
+      }
+    }
+  });
+
+  const totalSaved    = data.reduce((s,r) => s + (parseInt(r.retentions_saved) || 0), 0);
+  const totalRefunds  = data.reduce((s,r) => s + (parseInt(r.refunds_issued) || 0), 0);
+  const totalAttempts = data.reduce((s,r) => s + (parseInt(r.retention_attempts) || 0), 0);
+  const parcial       = Math.max(0, totalAttempts - totalSaved - totalRefunds);
+
+  charts.resultado = new Chart(document.getElementById('chartResultado'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Retido','Parcial','Reembolsado'],
+      datasets: [{ data: [totalSaved, parcial, totalRefunds], backgroundColor: ['#1D9E75','#EF9F27','#E24B4A'], borderWidth: 0, hoverOffset: 4 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { display: false } } }
+  });
+
+  charts.cb = new Chart(document.getElementById('chartCb'), {
+    type: 'bar',
+    data: {
+      labels: names,
+      datasets: [
+        { label: 'Reembolsos',  data: data.map(r => parseInt(r.refunds_issued) || 0),      backgroundColor: '#E24B4A', borderRadius: 3, borderSkipped: false },
+        { label: 'Chargebacks', data: data.map(r => parseInt(r.chargebacks_handled) || 0), backgroundColor: '#BA7517', borderRadius: 3, borderSkipped: false }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { size: 11 } }, grid: { display: false } },
+        y: { ticks: { font: { size: 11 } }, grid: { color: 'rgba(128,128,128,0.08)' } }
+      }
+    }
+  });
+
+  charts.resolved = new Chart(document.getElementById('chartResolved'), {
+    type: 'bar',
+    data: {
+      labels: names,
+      datasets: [
+        { label: 'Total',      data: data.map(r => parseInt(r.total_tickets) || 0),    backgroundColor: 'rgba(127,119,221,0.25)', borderRadius: 3, borderSkipped: false },
+        { label: 'Resolvidos', data: data.map(r => parseInt(r.tickets_resolved) || 0), backgroundColor: '#7F77DD',                borderRadius: 3, borderSkipped: false }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { size: 11 } }, grid: { display: false } },
+        y: { ticks: { font: { size: 11 } }, grid: { color: 'rgba(128,128,128,0.08)' } }
+      }
+    }
+  });
+}
+
+async function load() {
+  const date = document.getElementById('filterDate').value;
+  const team = document.getElementById('filterTeam').value;
+
+  document.getElementById('stateMsg').style.display = 'block';
+  document.getElementById('stateMsg').textContent = 'Carregando dados...';
+  document.getElementById('dashContent').style.display = 'none';
+
+  try {
+    const data = await fetchData(date, team);
+    if (!data.length) {
+      document.getElementById('stateMsg').textContent = `Nenhum dado encontrado para ${date}.`;
+      return;
+    }
+    renderMetrics(data);
+    renderTable(data, date);
+    renderCharts(data);
+    document.getElementById('stateMsg').style.display = 'none';
+    document.getElementById('dashContent').style.display = 'block';
+  } catch (err) {
+    document.getElementById('stateMsg').textContent = 'Erro ao carregar: ' + err.message;
+    console.error(err);
+  }
+}
+
+const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+document.getElementById('filterDate').value = yesterday.toISOString().slice(0,10);
+document.getElementById('filterTeam').addEventListener('change', load);
+document.getElementById('filterDate').addEventListener('change', load);
+document.getElementById('btnRefresh').addEventListener('click', load);
+
+load();
+</script>
+</body>
+</html>
