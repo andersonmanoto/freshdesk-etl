@@ -1,0 +1,564 @@
+2026-05-20 16:55:50 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 16:55:50 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 16:55:50 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 16:55:50 | WARNING  | steps.load:get_last_run:37 | [State] Não foi possível ler etl_state: {'message': "Could not find the table 'public.etl_state' in the schema cache", 'code': 'PGRST205', 'hint': "Perhaps you meant the table 'public.sales_status'", 'details': None}. Usando data inicial.
+2026-05-20 16:55:50 | INFO     | steps.load:get_last_run:39 | [State] Nenhum estado anterior — usando initial_sync_date: 2026-01-01T00:00:00Z
+2026-05-20 16:55:50 | INFO     | __main__:run:34 | Janela de extração: desde 2026-01-01T00:00:00Z
+2026-05-20 16:55:50 | INFO     | steps.extract:sync_agents:22 | [Extract] Sincronizando agentes...
+2026-05-20 16:55:50 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 16:55:50 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 16:55:51 | INFO     | steps.extract:sync_agents:43 | [Extract] 8 agentes sincronizados.
+2026-05-20 16:55:51 | INFO     | steps.extract:load_lookup_dicts:57 | [Extract] Carregando lookups na memória...
+2026-05-20 16:55:52 | DEBUG    | steps.extract:load_lookup_dicts:75 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 16:55:52 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-01-01T00:00:00Z
+2026-05-20 16:55:55 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 100 tickets (total acumulado: 100)
+2026-05-20 16:56:29 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 16:56:29 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 16:56:29 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 16:56:30 | WARNING  | steps.load:get_last_run:37 | [State] Não foi possível ler etl_state: 'NoneType' object has no attribute 'data'. Usando data inicial.
+2026-05-20 16:56:30 | INFO     | steps.load:get_last_run:39 | [State] Nenhum estado anterior — usando initial_sync_date: 2026-01-01T00:00:00Z
+2026-05-20 16:56:30 | INFO     | __main__:run:34 | Janela de extração: desde 2026-01-01T00:00:00Z
+2026-05-20 16:56:30 | INFO     | steps.extract:sync_agents:22 | [Extract] Sincronizando agentes...
+2026-05-20 16:56:30 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 16:56:30 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 16:56:30 | INFO     | steps.extract:sync_agents:43 | [Extract] 8 agentes sincronizados.
+2026-05-20 16:56:30 | INFO     | steps.extract:load_lookup_dicts:57 | [Extract] Carregando lookups na memória...
+2026-05-20 16:56:32 | DEBUG    | steps.extract:load_lookup_dicts:75 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 16:56:32 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-01-01T00:00:00Z
+2026-05-20 16:56:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 100 tickets (total acumulado: 100)
+2026-05-20 16:56:38 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 2 → 100 tickets (total acumulado: 200)
+2026-05-20 16:56:42 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 3 → 100 tickets (total acumulado: 300)
+2026-05-20 16:56:45 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 4 → 100 tickets (total acumulado: 400)
+2026-05-20 16:56:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 5 → 100 tickets (total acumulado: 500)
+2026-05-20 16:56:51 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 6 → 100 tickets (total acumulado: 600)
+2026-05-20 16:56:56 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 7 → 100 tickets (total acumulado: 700)
+2026-05-20 16:57:00 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 8 → 100 tickets (total acumulado: 800)
+2026-05-20 16:57:04 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 9 → 100 tickets (total acumulado: 900)
+2026-05-20 16:57:07 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 10 → 100 tickets (total acumulado: 1000)
+2026-05-20 16:57:11 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 11 → 100 tickets (total acumulado: 1100)
+2026-05-20 16:57:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 12 → 100 tickets (total acumulado: 1200)
+2026-05-20 16:57:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 13 → 100 tickets (total acumulado: 1300)
+2026-05-20 16:57:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 14 → 100 tickets (total acumulado: 1400)
+2026-05-20 16:57:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 15 → 100 tickets (total acumulado: 1500)
+2026-05-20 16:57:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 16 → 100 tickets (total acumulado: 1600)
+2026-05-20 16:57:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 17 → 100 tickets (total acumulado: 1700)
+2026-05-20 16:57:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 18 → 100 tickets (total acumulado: 1800)
+2026-05-20 16:57:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 19 → 100 tickets (total acumulado: 1900)
+2026-05-20 16:57:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 20 → 100 tickets (total acumulado: 2000)
+2026-05-20 16:57:52 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 21 → 100 tickets (total acumulado: 2100)
+2026-05-20 16:57:56 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 22 → 100 tickets (total acumulado: 2200)
+2026-05-20 16:58:01 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 23 → 100 tickets (total acumulado: 2300)
+2026-05-20 16:58:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 24 → 100 tickets (total acumulado: 2400)
+2026-05-20 16:58:10 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 25 → 100 tickets (total acumulado: 2500)
+2026-05-20 16:58:14 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 26 → 100 tickets (total acumulado: 2600)
+2026-05-20 16:58:18 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 27 → 100 tickets (total acumulado: 2700)
+2026-05-20 16:58:22 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 28 → 100 tickets (total acumulado: 2800)
+2026-05-20 16:58:26 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 29 → 100 tickets (total acumulado: 2900)
+2026-05-20 16:58:30 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 30 → 100 tickets (total acumulado: 3000)
+2026-05-20 16:58:34 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 31 → 100 tickets (total acumulado: 3100)
+2026-05-20 16:58:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 32 → 100 tickets (total acumulado: 3200)
+2026-05-20 16:58:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 33 → 100 tickets (total acumulado: 3300)
+2026-05-20 16:58:47 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 34 → 100 tickets (total acumulado: 3400)
+2026-05-20 16:58:51 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 35 → 100 tickets (total acumulado: 3500)
+2026-05-20 16:58:55 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 36 → 100 tickets (total acumulado: 3600)
+2026-05-20 16:59:00 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 37 → 100 tickets (total acumulado: 3700)
+2026-05-20 16:59:04 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 38 → 100 tickets (total acumulado: 3800)
+2026-05-20 16:59:09 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 39 → 100 tickets (total acumulado: 3900)
+2026-05-20 16:59:13 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 40 → 100 tickets (total acumulado: 4000)
+2026-05-20 16:59:17 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 41 → 100 tickets (total acumulado: 4100)
+2026-05-20 16:59:22 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 42 → 100 tickets (total acumulado: 4200)
+2026-05-20 16:59:26 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 43 → 100 tickets (total acumulado: 4300)
+2026-05-20 16:59:30 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 44 → 100 tickets (total acumulado: 4400)
+2026-05-20 16:59:34 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 45 → 100 tickets (total acumulado: 4500)
+2026-05-20 16:59:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 46 → 100 tickets (total acumulado: 4600)
+2026-05-20 16:59:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 47 → 100 tickets (total acumulado: 4700)
+2026-05-20 16:59:47 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 48 → 100 tickets (total acumulado: 4800)
+2026-05-20 16:59:51 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 49 → 100 tickets (total acumulado: 4900)
+2026-05-20 16:59:55 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 50 → 100 tickets (total acumulado: 5000)
+2026-05-20 16:59:59 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 51 → 100 tickets (total acumulado: 5100)
+2026-05-20 17:00:04 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 52 → 100 tickets (total acumulado: 5200)
+2026-05-20 17:00:09 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 53 → 100 tickets (total acumulado: 5300)
+2026-05-20 17:00:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 54 → 100 tickets (total acumulado: 5400)
+2026-05-20 17:00:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 55 → 100 tickets (total acumulado: 5500)
+2026-05-20 17:00:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 56 → 100 tickets (total acumulado: 5600)
+2026-05-20 17:00:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 57 → 100 tickets (total acumulado: 5700)
+2026-05-20 17:00:32 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 58 → 100 tickets (total acumulado: 5800)
+2026-05-20 17:00:36 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 59 → 100 tickets (total acumulado: 5900)
+2026-05-20 17:00:40 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 60 → 100 tickets (total acumulado: 6000)
+2026-05-20 17:00:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 61 → 100 tickets (total acumulado: 6100)
+2026-05-20 17:00:50 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 62 → 100 tickets (total acumulado: 6200)
+2026-05-20 17:00:54 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 63 → 100 tickets (total acumulado: 6300)
+2026-05-20 17:00:58 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 64 → 100 tickets (total acumulado: 6400)
+2026-05-20 17:01:02 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 65 → 100 tickets (total acumulado: 6500)
+2026-05-20 17:01:06 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 66 → 100 tickets (total acumulado: 6600)
+2026-05-20 17:01:10 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 67 → 100 tickets (total acumulado: 6700)
+2026-05-20 17:01:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 68 → 100 tickets (total acumulado: 6800)
+2026-05-20 17:01:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 69 → 100 tickets (total acumulado: 6900)
+2026-05-20 17:01:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 70 → 100 tickets (total acumulado: 7000)
+2026-05-20 17:01:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 71 → 100 tickets (total acumulado: 7100)
+2026-05-20 17:01:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 72 → 100 tickets (total acumulado: 7200)
+2026-05-20 17:01:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 73 → 100 tickets (total acumulado: 7300)
+2026-05-20 17:01:38 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 74 → 100 tickets (total acumulado: 7400)
+2026-05-20 17:01:42 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 75 → 100 tickets (total acumulado: 7500)
+2026-05-20 17:01:47 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 76 → 100 tickets (total acumulado: 7600)
+2026-05-20 17:01:52 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 77 → 100 tickets (total acumulado: 7700)
+2026-05-20 17:01:56 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 78 → 100 tickets (total acumulado: 7800)
+2026-05-20 17:02:01 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 79 → 100 tickets (total acumulado: 7900)
+2026-05-20 17:02:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 80 → 100 tickets (total acumulado: 8000)
+2026-05-20 17:02:08 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 81 → 100 tickets (total acumulado: 8100)
+2026-05-20 17:02:12 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 82 → 100 tickets (total acumulado: 8200)
+2026-05-20 17:02:16 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 83 → 100 tickets (total acumulado: 8300)
+2026-05-20 17:02:20 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 84 → 100 tickets (total acumulado: 8400)
+2026-05-20 17:02:24 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 85 → 100 tickets (total acumulado: 8500)
+2026-05-20 17:02:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 86 → 100 tickets (total acumulado: 8600)
+2026-05-20 17:02:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 87 → 100 tickets (total acumulado: 8700)
+2026-05-20 17:02:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 88 → 100 tickets (total acumulado: 8800)
+2026-05-20 17:02:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 89 → 100 tickets (total acumulado: 8900)
+2026-05-20 17:02:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 90 → 100 tickets (total acumulado: 9000)
+2026-05-20 17:02:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 91 → 100 tickets (total acumulado: 9100)
+2026-05-20 17:02:49 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 92 → 100 tickets (total acumulado: 9200)
+2026-05-20 17:02:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 93 → 100 tickets (total acumulado: 9300)
+2026-05-20 17:02:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 94 → 100 tickets (total acumulado: 9400)
+2026-05-20 17:03:01 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 95 → 100 tickets (total acumulado: 9500)
+2026-05-20 17:03:04 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 96 → 100 tickets (total acumulado: 9600)
+2026-05-20 17:03:08 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 97 → 100 tickets (total acumulado: 9700)
+2026-05-20 17:03:11 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 98 → 100 tickets (total acumulado: 9800)
+2026-05-20 17:03:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 99 → 100 tickets (total acumulado: 9900)
+2026-05-20 17:03:18 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 100 → 100 tickets (total acumulado: 10000)
+2026-05-20 17:03:21 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 101 → 100 tickets (total acumulado: 10100)
+2026-05-20 17:03:25 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 102 → 100 tickets (total acumulado: 10200)
+2026-05-20 17:03:28 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 103 → 100 tickets (total acumulado: 10300)
+2026-05-20 17:03:33 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 104 → 100 tickets (total acumulado: 10400)
+2026-05-20 17:03:36 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 105 → 100 tickets (total acumulado: 10500)
+2026-05-20 17:03:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 106 → 100 tickets (total acumulado: 10600)
+2026-05-20 17:03:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 107 → 100 tickets (total acumulado: 10700)
+2026-05-20 17:03:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 108 → 100 tickets (total acumulado: 10800)
+2026-05-20 17:03:50 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 109 → 100 tickets (total acumulado: 10900)
+2026-05-20 17:03:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 110 → 100 tickets (total acumulado: 11000)
+2026-05-20 17:03:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 111 → 100 tickets (total acumulado: 11100)
+2026-05-20 17:04:00 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 112 → 100 tickets (total acumulado: 11200)
+2026-05-20 17:04:03 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 113 → 100 tickets (total acumulado: 11300)
+2026-05-20 17:04:07 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 114 → 100 tickets (total acumulado: 11400)
+2026-05-20 17:04:10 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 115 → 100 tickets (total acumulado: 11500)
+2026-05-20 17:04:14 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 116 → 100 tickets (total acumulado: 11600)
+2026-05-20 17:04:17 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 117 → 100 tickets (total acumulado: 11700)
+2026-05-20 17:04:21 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 118 → 100 tickets (total acumulado: 11800)
+2026-05-20 17:04:25 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 119 → 100 tickets (total acumulado: 11900)
+2026-05-20 17:04:29 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 120 → 100 tickets (total acumulado: 12000)
+2026-05-20 17:04:32 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 121 → 100 tickets (total acumulado: 12100)
+2026-05-20 17:04:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 122 → 100 tickets (total acumulado: 12200)
+2026-05-20 17:04:38 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 123 → 100 tickets (total acumulado: 12300)
+2026-05-20 17:04:44 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 124 → 100 tickets (total acumulado: 12400)
+2026-05-20 17:04:47 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 125 → 100 tickets (total acumulado: 12500)
+2026-05-20 17:04:51 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 126 → 100 tickets (total acumulado: 12600)
+2026-05-20 17:04:54 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 127 → 100 tickets (total acumulado: 12700)
+2026-05-20 17:04:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 128 → 100 tickets (total acumulado: 12800)
+2026-05-20 17:05:01 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 129 → 100 tickets (total acumulado: 12900)
+2026-05-20 17:05:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 130 → 100 tickets (total acumulado: 13000)
+2026-05-20 17:05:09 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 131 → 100 tickets (total acumulado: 13100)
+2026-05-20 17:05:13 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 132 → 100 tickets (total acumulado: 13200)
+2026-05-20 17:05:16 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 133 → 100 tickets (total acumulado: 13300)
+2026-05-20 17:05:20 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 134 → 100 tickets (total acumulado: 13400)
+2026-05-20 17:05:39 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 17:05:39 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 17:05:39 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 17:05:40 | WARNING  | steps.load:get_last_run:37 | [State] Não foi possível ler etl_state: 'NoneType' object has no attribute 'data'. Usando data inicial.
+2026-05-20 17:05:40 | INFO     | steps.load:get_last_run:39 | [State] Nenhum estado anterior — usando initial_sync_date: 2026-05-01T00:00:00Z
+2026-05-20 17:05:40 | INFO     | __main__:run:34 | Janela de extração: desde 2026-05-01T00:00:00Z
+2026-05-20 17:05:40 | INFO     | steps.extract:sync_agents:22 | [Extract] Sincronizando agentes...
+2026-05-20 17:05:40 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 17:05:40 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 17:05:41 | INFO     | steps.extract:sync_agents:43 | [Extract] 8 agentes sincronizados.
+2026-05-20 17:05:41 | INFO     | steps.extract:load_lookup_dicts:57 | [Extract] Carregando lookups na memória...
+2026-05-20 17:05:42 | DEBUG    | steps.extract:load_lookup_dicts:75 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 17:05:42 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-05-01T00:00:00Z
+2026-05-20 17:05:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 100 tickets (total acumulado: 100)
+2026-05-20 17:05:49 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 2 → 100 tickets (total acumulado: 200)
+2026-05-20 17:05:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 3 → 100 tickets (total acumulado: 300)
+2026-05-20 17:05:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 4 → 100 tickets (total acumulado: 400)
+2026-05-20 17:06:00 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 5 → 100 tickets (total acumulado: 500)
+2026-05-20 17:06:04 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 6 → 100 tickets (total acumulado: 600)
+2026-05-20 17:06:08 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 7 → 100 tickets (total acumulado: 700)
+2026-05-20 17:06:12 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 8 → 100 tickets (total acumulado: 800)
+2026-05-20 17:06:16 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 9 → 100 tickets (total acumulado: 900)
+2026-05-20 17:06:21 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 10 → 100 tickets (total acumulado: 1000)
+2026-05-20 17:06:24 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 11 → 100 tickets (total acumulado: 1100)
+2026-05-20 17:06:29 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 12 → 100 tickets (total acumulado: 1200)
+2026-05-20 17:06:33 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 13 → 100 tickets (total acumulado: 1300)
+2026-05-20 17:06:37 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 14 → 100 tickets (total acumulado: 1400)
+2026-05-20 17:06:41 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 15 → 100 tickets (total acumulado: 1500)
+2026-05-20 17:06:45 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 16 → 100 tickets (total acumulado: 1600)
+2026-05-20 17:06:49 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 17 → 100 tickets (total acumulado: 1700)
+2026-05-20 17:06:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 18 → 100 tickets (total acumulado: 1800)
+2026-05-20 17:06:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 19 → 100 tickets (total acumulado: 1900)
+2026-05-20 17:07:02 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 20 → 100 tickets (total acumulado: 2000)
+2026-05-20 17:07:06 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 21 → 100 tickets (total acumulado: 2100)
+2026-05-20 17:07:11 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 22 → 100 tickets (total acumulado: 2200)
+2026-05-20 17:07:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 23 → 100 tickets (total acumulado: 2300)
+2026-05-20 17:07:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 24 → 100 tickets (total acumulado: 2400)
+2026-05-20 17:07:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 25 → 100 tickets (total acumulado: 2500)
+2026-05-20 17:07:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 26 → 100 tickets (total acumulado: 2600)
+2026-05-20 17:07:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 27 → 100 tickets (total acumulado: 2700)
+2026-05-20 17:07:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 28 → 100 tickets (total acumulado: 2800)
+2026-05-20 17:07:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 29 → 100 tickets (total acumulado: 2900)
+2026-05-20 17:07:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 30 → 100 tickets (total acumulado: 3000)
+2026-05-20 17:07:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 31 → 100 tickets (total acumulado: 3100)
+2026-05-20 17:07:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 32 → 100 tickets (total acumulado: 3200)
+2026-05-20 17:07:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 33 → 100 tickets (total acumulado: 3300)
+2026-05-20 17:08:01 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 34 → 100 tickets (total acumulado: 3400)
+2026-05-20 17:08:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 35 → 100 tickets (total acumulado: 3500)
+2026-05-20 17:08:09 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 36 → 100 tickets (total acumulado: 3600)
+2026-05-20 17:08:13 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 37 → 100 tickets (total acumulado: 3700)
+2026-05-20 17:08:18 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 38 → 100 tickets (total acumulado: 3800)
+2026-05-20 17:08:22 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 39 → 100 tickets (total acumulado: 3900)
+2026-05-20 17:08:26 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 40 → 100 tickets (total acumulado: 4000)
+2026-05-20 17:08:29 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 41 → 100 tickets (total acumulado: 4100)
+2026-05-20 17:08:33 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 42 → 100 tickets (total acumulado: 4200)
+2026-05-20 17:08:37 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 43 → 100 tickets (total acumulado: 4300)
+2026-05-20 17:08:41 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 44 → 100 tickets (total acumulado: 4400)
+2026-05-20 17:08:44 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 45 → 100 tickets (total acumulado: 4500)
+2026-05-20 17:08:49 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 46 → 100 tickets (total acumulado: 4600)
+2026-05-20 17:08:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 47 → 100 tickets (total acumulado: 4700)
+2026-05-20 17:08:57 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 48 → 100 tickets (total acumulado: 4800)
+2026-05-20 17:09:01 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 49 → 100 tickets (total acumulado: 4900)
+2026-05-20 17:09:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 50 → 100 tickets (total acumulado: 5000)
+2026-05-20 17:09:09 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 51 → 100 tickets (total acumulado: 5100)
+2026-05-20 17:09:13 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 52 → 100 tickets (total acumulado: 5200)
+2026-05-20 17:09:17 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 53 → 100 tickets (total acumulado: 5300)
+2026-05-20 17:09:20 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 54 → 100 tickets (total acumulado: 5400)
+2026-05-20 17:09:22 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 55 → 100 tickets (total acumulado: 5500)
+2026-05-20 17:09:24 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 56 → 100 tickets (total acumulado: 5600)
+2026-05-20 17:09:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 57 → 100 tickets (total acumulado: 5700)
+2026-05-20 17:09:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 58 → 100 tickets (total acumulado: 5800)
+2026-05-20 17:09:33 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 59 → 56 tickets (total acumulado: 5856)
+2026-05-20 17:09:33 | INFO     | services.freshdesk:fetch_tickets_since:99 | Total de tickets extraídos: 5856
+2026-05-20 17:09:33 | INFO     | steps.enrich:build_sales_index:30 | [Enrich] Cruzando 4768 order_ids com a tabela de eventos...
+2026-05-20 17:09:34 | ERROR    | __main__:<module>:67 | 💥 ETL encerrado com erro fatal: {'message': 'JSON could not be generated', 'code': 400, 'hint': 'Refer to full message for details', 'details': "b'Bad Request'"}
+Traceback (most recent call last):
+
+  File "/home/andrsnhd/python/freshdesk_etl/venv/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 95, in execute
+    json_obj = model_validate_json(APIErrorFromJSON, r.content)
+               │                   │                 │ └ <property object at 0x759fe7f26660>
+               │                   │                 └ <Response [400 Bad Request]>
+               │                   └ <class 'postgrest.exceptions.APIErrorFromJSON'>
+               └ <function model_validate_json at 0x759fe7bc2340>
+  File "/home/andrsnhd/python/freshdesk_etl/venv/lib/python3.12/site-packages/postgrest/utils.py", line 56, in model_validate_json
+    return model.model_validate_json(contents)
+           │     │                   └ b'Bad Request'
+           │     └ <classmethod(<function BaseModel.model_validate_json at 0x759fe82e4ea0>)>
+           └ <class 'postgrest.exceptions.APIErrorFromJSON'>
+  File "/home/andrsnhd/python/freshdesk_etl/venv/lib/python3.12/site-packages/pydantic/main.py", line 782, in model_validate_json
+    return cls.__pydantic_validator__.validate_json(
+           │   │                      └ <method 'validate_json' of 'pydantic_core._pydantic_core.SchemaValidator' objects>
+           │   └ SchemaValidator(title="APIErrorFromJSON", validator=Model(
+           │         ModelValidator {
+           │             revalidate: Never,
+           │             validator:...
+           └ <class 'postgrest.exceptions.APIErrorFromJSON'>
+
+pydantic_core._pydantic_core.ValidationError: 1 validation error for APIErrorFromJSON
+  Invalid JSON: expected value at line 1 column 1 [type=json_invalid, input_value=b'Bad Request', input_type=bytes]
+    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "/home/andrsnhd/python/freshdesk_etl/main.py", line 65, in <module>
+    run()
+    └ <function run at 0x759fe9d1cf40>
+
+  File "/home/andrsnhd/python/freshdesk_etl/main.py", line 47, in run
+    sales_index = build_sales_index(raw_tickets)
+                  │                 └ [{'cc_emails': [], 'fwd_emails': [], 'reply_cc_emails': [], 'ticket_cc_emails': [], 'ticket_bcc_emails': [], 'fr_escalated': ...
+                  └ <function build_sales_index at 0x759fe6e0f9c0>
+
+  File "/home/andrsnhd/python/freshdesk_etl/steps/enrich.py", line 37, in build_sales_index
+    .execute()
+
+  File "/home/andrsnhd/python/freshdesk_etl/venv/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 98, in execute
+    raise APIError(generate_default_error_message(r))
+          │        │                              └ <Response [400 Bad Request]>
+          │        └ <function generate_default_error_message at 0x759fe8100f40>
+          └ <class 'postgrest.exceptions.APIError'>
+
+postgrest.exceptions.APIError: {'message': 'JSON could not be generated', 'code': 400, 'hint': 'Refer to full message for details', 'details': "b'Bad Request'"}
+2026-05-20 17:15:04 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 17:15:04 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 17:15:04 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 17:15:04 | WARNING  | steps.load:get_last_run:37 | [State] Não foi possível ler etl_state: 'NoneType' object has no attribute 'data'. Usando data inicial.
+2026-05-20 17:15:04 | INFO     | steps.load:get_last_run:39 | [State] Nenhum estado anterior — usando initial_sync_date: 2026-05-01T00:00:00Z
+2026-05-20 17:15:04 | INFO     | __main__:run:34 | Janela de extração: desde 2026-05-01T00:00:00Z
+2026-05-20 17:15:04 | INFO     | steps.extract:sync_agents:22 | [Extract] Sincronizando agentes...
+2026-05-20 17:15:04 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 17:15:05 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 17:15:05 | INFO     | steps.extract:sync_agents:43 | [Extract] 8 agentes sincronizados.
+2026-05-20 17:15:05 | INFO     | steps.extract:load_lookup_dicts:57 | [Extract] Carregando lookups na memória...
+2026-05-20 17:15:06 | DEBUG    | steps.extract:load_lookup_dicts:75 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 17:15:06 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-05-01T00:00:00Z
+2026-05-20 17:15:11 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 100 tickets (total acumulado: 100)
+2026-05-20 17:15:14 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 2 → 100 tickets (total acumulado: 200)
+2026-05-20 17:15:18 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 3 → 100 tickets (total acumulado: 300)
+2026-05-20 17:15:22 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 4 → 100 tickets (total acumulado: 400)
+2026-05-20 17:15:25 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 5 → 100 tickets (total acumulado: 500)
+2026-05-20 17:15:28 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 6 → 100 tickets (total acumulado: 600)
+2026-05-20 17:15:32 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 7 → 100 tickets (total acumulado: 700)
+2026-05-20 17:15:36 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 8 → 100 tickets (total acumulado: 800)
+2026-05-20 17:15:40 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 9 → 100 tickets (total acumulado: 900)
+2026-05-20 17:15:44 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 10 → 100 tickets (total acumulado: 1000)
+2026-05-20 17:15:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 11 → 100 tickets (total acumulado: 1100)
+2026-05-20 17:15:52 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 12 → 100 tickets (total acumulado: 1200)
+2026-05-20 17:15:56 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 13 → 100 tickets (total acumulado: 1300)
+2026-05-20 17:16:00 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 14 → 100 tickets (total acumulado: 1400)
+2026-05-20 17:16:04 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 15 → 100 tickets (total acumulado: 1500)
+2026-05-20 17:16:08 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 16 → 100 tickets (total acumulado: 1600)
+2026-05-20 17:16:12 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 17 → 100 tickets (total acumulado: 1700)
+2026-05-20 17:16:16 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 18 → 100 tickets (total acumulado: 1800)
+2026-05-20 17:16:20 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 19 → 100 tickets (total acumulado: 1900)
+2026-05-20 17:16:24 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 20 → 100 tickets (total acumulado: 2000)
+2026-05-20 17:16:29 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 21 → 100 tickets (total acumulado: 2100)
+2026-05-20 17:16:33 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 22 → 100 tickets (total acumulado: 2200)
+2026-05-20 17:16:37 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 23 → 100 tickets (total acumulado: 2300)
+2026-05-20 17:16:41 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 24 → 100 tickets (total acumulado: 2400)
+2026-05-20 17:16:45 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 25 → 100 tickets (total acumulado: 2500)
+2026-05-20 17:16:50 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 26 → 100 tickets (total acumulado: 2600)
+2026-05-20 17:16:54 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 27 → 100 tickets (total acumulado: 2700)
+2026-05-20 17:16:58 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 28 → 100 tickets (total acumulado: 2800)
+2026-05-20 17:17:02 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 29 → 100 tickets (total acumulado: 2900)
+2026-05-20 17:17:06 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 30 → 100 tickets (total acumulado: 3000)
+2026-05-20 17:17:10 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 31 → 100 tickets (total acumulado: 3100)
+2026-05-20 17:17:14 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 32 → 100 tickets (total acumulado: 3200)
+2026-05-20 17:17:18 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 33 → 100 tickets (total acumulado: 3300)
+2026-05-20 17:17:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 34 → 100 tickets (total acumulado: 3400)
+2026-05-20 17:17:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 35 → 100 tickets (total acumulado: 3500)
+2026-05-20 17:17:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 36 → 100 tickets (total acumulado: 3600)
+2026-05-20 17:17:34 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 37 → 100 tickets (total acumulado: 3700)
+2026-05-20 17:17:38 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 38 → 100 tickets (total acumulado: 3800)
+2026-05-20 17:17:42 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 39 → 100 tickets (total acumulado: 3900)
+2026-05-20 17:17:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 40 → 100 tickets (total acumulado: 4000)
+2026-05-20 17:17:50 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 41 → 100 tickets (total acumulado: 4100)
+2026-05-20 17:17:55 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 42 → 100 tickets (total acumulado: 4200)
+2026-05-20 17:17:59 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 43 → 100 tickets (total acumulado: 4300)
+2026-05-20 17:18:03 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 44 → 100 tickets (total acumulado: 4400)
+2026-05-20 17:18:07 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 45 → 100 tickets (total acumulado: 4500)
+2026-05-20 17:18:11 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 46 → 100 tickets (total acumulado: 4600)
+2026-05-20 17:18:16 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 47 → 100 tickets (total acumulado: 4700)
+2026-05-20 17:18:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 48 → 100 tickets (total acumulado: 4800)
+2026-05-20 17:18:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 49 → 100 tickets (total acumulado: 4900)
+2026-05-20 17:18:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 50 → 100 tickets (total acumulado: 5000)
+2026-05-20 17:18:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 51 → 100 tickets (total acumulado: 5100)
+2026-05-20 17:18:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 52 → 100 tickets (total acumulado: 5200)
+2026-05-20 17:18:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 53 → 100 tickets (total acumulado: 5300)
+2026-05-20 17:18:41 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 54 → 100 tickets (total acumulado: 5400)
+2026-05-20 17:18:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 55 → 100 tickets (total acumulado: 5500)
+2026-05-20 17:18:45 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 56 → 100 tickets (total acumulado: 5600)
+2026-05-20 17:18:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 57 → 100 tickets (total acumulado: 5700)
+2026-05-20 17:18:51 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 58 → 100 tickets (total acumulado: 5800)
+2026-05-20 17:18:53 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 59 → 64 tickets (total acumulado: 5864)
+2026-05-20 17:18:53 | INFO     | services.freshdesk:fetch_tickets_since:99 | Total de tickets extraídos: 5864
+2026-05-20 17:18:53 | INFO     | steps.enrich:build_sales_index:30 | [Enrich] Cruzando 4771 order_ids com a tabela de eventos...
+2026-05-20 17:18:54 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 1/10 — 528 rows retornados.
+2026-05-20 17:18:54 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 2/10 — 523 rows retornados.
+2026-05-20 17:18:55 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 3/10 — 533 rows retornados.
+2026-05-20 17:18:56 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 4/10 — 520 rows retornados.
+2026-05-20 17:18:56 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 5/10 — 538 rows retornados.
+2026-05-20 17:18:56 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 6/10 — 534 rows retornados.
+2026-05-20 17:18:57 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 7/10 — 521 rows retornados.
+2026-05-20 17:18:57 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 8/10 — 520 rows retornados.
+2026-05-20 17:18:57 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 9/10 — 517 rows retornados.
+2026-05-20 17:18:58 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 10/10 — 280 rows retornados.
+2026-05-20 17:18:58 | INFO     | steps.enrich:build_sales_index:49 | [Enrich] 4596 order_ids encontrados na tabela de eventos.
+2026-05-20 17:18:58 | DEBUG    | steps.enrich:build_sales_index:53 | [Enrich] 175 order_ids sem correspondência em events.
+2026-05-20 17:18:58 | INFO     | steps.transform:transform_tickets:122 | [Transform] Transformando 5864 tickets...
+2026-05-20 17:18:58 | INFO     | steps.transform:transform_tickets:147 | [Transform] Concluído — 5864 rows gerados, 0 erros.
+2026-05-20 17:18:58 | INFO     | steps.load:load_tickets:80 | [Load] Iniciando upsert de 5864 tickets em 12 chunk(s)...
+2026-05-20 17:18:59 | ERROR    | steps.load:load_tickets:91 | [Load] Falha no chunk 1/12 (rows 0 a 499): {'message': 'there is no unique or exclusion constraint matching the ON CONFLICT specification', 'code': '42P10', 'hint': None, 'details': None}
+2026-05-20 17:18:59 | ERROR    | __main__:<module>:67 | 💥 ETL encerrado com erro fatal: {'message': 'there is no unique or exclusion constraint matching the ON CONFLICT specification', 'code': '42P10', 'hint': None, 'details': None}
+Traceback (most recent call last):
+
+> File "/home/andrsnhd/python/freshdesk_etl/main.py", line 65, in <module>
+    run()
+    └ <function run at 0x7a7a7921cf40>
+
+  File "/home/andrsnhd/python/freshdesk_etl/main.py", line 53, in run
+    load_tickets(payload)
+    │            └ [{'freshdesk_ticket_id': 34938, 'fd_created_at': '2026-05-20T20:14:16Z', 'fd_updated_at': '2026-05-20T20:14:21Z', 'fd_resolve...
+    └ <function load_tickets at 0x7a7a757042c0>
+
+  File "/home/andrsnhd/python/freshdesk_etl/steps/load.py", line 88, in load_tickets
+    ).execute()
+
+  File "/home/andrsnhd/python/freshdesk_etl/venv/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 96, in execute
+    raise APIError(dict(json_obj))
+          │             └ APIErrorFromJSON(message='there is no unique or exclusion constraint matching the ON CONFLICT specification', code='42P10', h...
+          └ <class 'postgrest.exceptions.APIError'>
+
+postgrest.exceptions.APIError: {'message': 'there is no unique or exclusion constraint matching the ON CONFLICT specification', 'code': '42P10', 'hint': None, 'details': None}
+2026-05-20 17:27:00 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 17:27:00 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 17:27:00 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 17:27:00 | WARNING  | steps.load:get_last_run:37 | [State] Não foi possível ler etl_state: 'NoneType' object has no attribute 'data'. Usando data inicial.
+2026-05-20 17:27:00 | INFO     | steps.load:get_last_run:39 | [State] Nenhum estado anterior — usando initial_sync_date: 2026-05-01T00:00:00Z
+2026-05-20 17:27:00 | INFO     | __main__:run:34 | Janela de extração: desde 2026-05-01T00:00:00Z
+2026-05-20 17:27:00 | INFO     | steps.extract:sync_agents:22 | [Extract] Sincronizando agentes...
+2026-05-20 17:27:00 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 17:27:00 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 17:27:01 | INFO     | steps.extract:sync_agents:43 | [Extract] 8 agentes sincronizados.
+2026-05-20 17:27:01 | INFO     | steps.extract:load_lookup_dicts:57 | [Extract] Carregando lookups na memória...
+2026-05-20 17:27:01 | DEBUG    | steps.extract:load_lookup_dicts:75 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 17:27:01 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-05-01T00:00:00Z
+2026-05-20 17:27:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 100 tickets (total acumulado: 100)
+2026-05-20 17:27:08 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 2 → 100 tickets (total acumulado: 200)
+2026-05-20 17:27:12 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 3 → 100 tickets (total acumulado: 300)
+2026-05-20 17:27:16 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 4 → 100 tickets (total acumulado: 400)
+2026-05-20 17:27:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 5 → 100 tickets (total acumulado: 500)
+2026-05-20 17:27:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 6 → 100 tickets (total acumulado: 600)
+2026-05-20 17:27:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 7 → 100 tickets (total acumulado: 700)
+2026-05-20 17:27:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 8 → 100 tickets (total acumulado: 800)
+2026-05-20 17:27:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 9 → 100 tickets (total acumulado: 900)
+2026-05-20 17:27:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 10 → 100 tickets (total acumulado: 1000)
+2026-05-20 17:27:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 11 → 100 tickets (total acumulado: 1100)
+2026-05-20 17:27:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 12 → 100 tickets (total acumulado: 1200)
+2026-05-20 17:27:50 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 13 → 100 tickets (total acumulado: 1300)
+2026-05-20 17:27:54 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 14 → 100 tickets (total acumulado: 1400)
+2026-05-20 17:27:58 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 15 → 100 tickets (total acumulado: 1500)
+2026-05-20 17:28:03 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 16 → 100 tickets (total acumulado: 1600)
+2026-05-20 17:28:07 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 17 → 100 tickets (total acumulado: 1700)
+2026-05-20 17:28:11 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 18 → 100 tickets (total acumulado: 1800)
+2026-05-20 17:28:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 19 → 100 tickets (total acumulado: 1900)
+2026-05-20 17:28:20 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 20 → 100 tickets (total acumulado: 2000)
+2026-05-20 17:28:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 21 → 100 tickets (total acumulado: 2100)
+2026-05-20 17:28:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 22 → 100 tickets (total acumulado: 2200)
+2026-05-20 17:28:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 23 → 100 tickets (total acumulado: 2300)
+2026-05-20 17:28:34 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 24 → 100 tickets (total acumulado: 2400)
+2026-05-20 17:28:38 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 25 → 100 tickets (total acumulado: 2500)
+2026-05-20 17:28:42 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 26 → 100 tickets (total acumulado: 2600)
+2026-05-20 17:28:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 27 → 100 tickets (total acumulado: 2700)
+2026-05-20 17:28:50 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 28 → 100 tickets (total acumulado: 2800)
+2026-05-20 17:28:54 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 29 → 100 tickets (total acumulado: 2900)
+2026-05-20 17:28:58 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 30 → 100 tickets (total acumulado: 3000)
+2026-05-20 17:29:02 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 31 → 100 tickets (total acumulado: 3100)
+2026-05-20 17:29:06 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 32 → 100 tickets (total acumulado: 3200)
+2026-05-20 17:29:10 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 33 → 100 tickets (total acumulado: 3300)
+2026-05-20 17:29:15 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 34 → 100 tickets (total acumulado: 3400)
+2026-05-20 17:29:19 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 35 → 100 tickets (total acumulado: 3500)
+2026-05-20 17:29:23 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 36 → 100 tickets (total acumulado: 3600)
+2026-05-20 17:29:27 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 37 → 100 tickets (total acumulado: 3700)
+2026-05-20 17:29:31 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 38 → 100 tickets (total acumulado: 3800)
+2026-05-20 17:29:35 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 39 → 100 tickets (total acumulado: 3900)
+2026-05-20 17:29:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 40 → 100 tickets (total acumulado: 4000)
+2026-05-20 17:29:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 41 → 100 tickets (total acumulado: 4100)
+2026-05-20 17:29:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 42 → 100 tickets (total acumulado: 4200)
+2026-05-20 17:29:52 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 43 → 100 tickets (total acumulado: 4300)
+2026-05-20 17:29:56 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 44 → 100 tickets (total acumulado: 4400)
+2026-05-20 17:30:00 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 45 → 100 tickets (total acumulado: 4500)
+2026-05-20 17:30:05 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 46 → 100 tickets (total acumulado: 4600)
+2026-05-20 17:30:09 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 47 → 100 tickets (total acumulado: 4700)
+2026-05-20 17:30:13 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 48 → 100 tickets (total acumulado: 4800)
+2026-05-20 17:30:17 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 49 → 100 tickets (total acumulado: 4900)
+2026-05-20 17:30:21 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 50 → 100 tickets (total acumulado: 5000)
+2026-05-20 17:30:25 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 51 → 100 tickets (total acumulado: 5100)
+2026-05-20 17:30:29 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 52 → 100 tickets (total acumulado: 5200)
+2026-05-20 17:30:33 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 53 → 100 tickets (total acumulado: 5300)
+2026-05-20 17:30:36 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 54 → 100 tickets (total acumulado: 5400)
+2026-05-20 17:30:38 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 55 → 100 tickets (total acumulado: 5500)
+2026-05-20 17:30:39 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 56 → 100 tickets (total acumulado: 5600)
+2026-05-20 17:30:43 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 57 → 100 tickets (total acumulado: 5700)
+2026-05-20 17:30:46 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 58 → 100 tickets (total acumulado: 5800)
+2026-05-20 17:30:48 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 59 → 67 tickets (total acumulado: 5867)
+2026-05-20 17:30:48 | INFO     | services.freshdesk:fetch_tickets_since:99 | Total de tickets extraídos: 5867
+2026-05-20 17:30:48 | INFO     | steps.enrich:build_sales_index:30 | [Enrich] Cruzando 4773 order_ids com a tabela de eventos...
+2026-05-20 17:30:49 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 1/10 — 523 rows retornados.
+2026-05-20 17:30:49 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 2/10 — 526 rows retornados.
+2026-05-20 17:30:50 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 3/10 — 525 rows retornados.
+2026-05-20 17:30:50 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 4/10 — 528 rows retornados.
+2026-05-20 17:30:50 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 5/10 — 534 rows retornados.
+2026-05-20 17:30:51 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 6/10 — 535 rows retornados.
+2026-05-20 17:30:51 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 7/10 — 515 rows retornados.
+2026-05-20 17:30:52 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 8/10 — 525 rows retornados.
+2026-05-20 17:30:52 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 9/10 — 513 rows retornados.
+2026-05-20 17:30:52 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 10/10 — 292 rows retornados.
+2026-05-20 17:30:52 | INFO     | steps.enrich:build_sales_index:49 | [Enrich] 4598 order_ids encontrados na tabela de eventos.
+2026-05-20 17:30:52 | DEBUG    | steps.enrich:build_sales_index:53 | [Enrich] 175 order_ids sem correspondência em events.
+2026-05-20 17:30:52 | INFO     | steps.transform:transform_tickets:122 | [Transform] Transformando 5867 tickets...
+2026-05-20 17:30:52 | INFO     | steps.transform:transform_tickets:147 | [Transform] Concluído — 5867 rows gerados, 0 erros.
+2026-05-20 17:30:52 | INFO     | steps.load:load_tickets:80 | [Load] Iniciando upsert de 5867 tickets em 12 chunk(s)...
+2026-05-20 17:30:54 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 1/12 concluído (500 rows).
+2026-05-20 17:30:55 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 2/12 concluído (500 rows).
+2026-05-20 17:30:56 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 3/12 concluído (500 rows).
+2026-05-20 17:30:57 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 4/12 concluído (500 rows).
+2026-05-20 17:30:58 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 5/12 concluído (500 rows).
+2026-05-20 17:30:59 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 6/12 concluído (500 rows).
+2026-05-20 17:31:00 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 7/12 concluído (500 rows).
+2026-05-20 17:31:01 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 8/12 concluído (500 rows).
+2026-05-20 17:31:03 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 9/12 concluído (500 rows).
+2026-05-20 17:31:04 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 10/12 concluído (500 rows).
+2026-05-20 17:31:05 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 11/12 concluído (500 rows).
+2026-05-20 17:31:05 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 12/12 concluído (367 rows).
+2026-05-20 17:31:05 | INFO     | steps.load:load_tickets:97 | [Load] Upsert finalizado — 5867 tickets carregados.
+2026-05-20 17:31:06 | INFO     | steps.load:save_last_run:55 | [State] last_run salvo: 2026-05-20T20:24:13Z
+2026-05-20 17:31:06 | INFO     | __main__:run:58 | ============================================================
+2026-05-20 17:31:06 | INFO     | __main__:run:59 | 🏁 ETL concluído. Próxima execução desde: 2026-05-20T20:24:13Z
+2026-05-20 17:31:06 | INFO     | __main__:run:60 | ============================================================
+2026-05-20 19:53:11 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 19:53:11 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 19:53:11 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 19:53:12 | DEBUG    | steps.load:get_last_run:34 | [State] last_run carregado: 2026-05-20T20:24:13Z
+2026-05-20 19:53:12 | INFO     | __main__:run:34 | Janela de extração: desde 2026-05-20T20:24:13Z
+2026-05-20 19:53:12 | INFO     | steps.extract:sync_agents:22 | [Extract] Sincronizando agentes...
+2026-05-20 19:53:12 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 19:53:13 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 19:53:13 | INFO     | steps.extract:sync_agents:43 | [Extract] 8 agentes sincronizados.
+2026-05-20 19:53:13 | INFO     | steps.extract:load_lookup_dicts:57 | [Extract] Carregando lookups na memória...
+2026-05-20 19:53:14 | DEBUG    | steps.extract:load_lookup_dicts:75 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 19:53:14 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-05-20T20:24:13Z
+2026-05-20 19:53:17 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 100 tickets (total acumulado: 100)
+2026-05-20 19:53:17 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 2 → 8 tickets (total acumulado: 108)
+2026-05-20 19:53:17 | INFO     | services.freshdesk:fetch_tickets_since:99 | Total de tickets extraídos: 108
+2026-05-20 19:53:17 | INFO     | steps.enrich:build_sales_index:30 | [Enrich] Cruzando 58 order_ids com a tabela de eventos...
+2026-05-20 19:53:18 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 1/1 — 44 rows retornados.
+2026-05-20 19:53:18 | INFO     | steps.enrich:build_sales_index:49 | [Enrich] 44 order_ids encontrados na tabela de eventos.
+2026-05-20 19:53:18 | DEBUG    | steps.enrich:build_sales_index:53 | [Enrich] 14 order_ids sem correspondência em events.
+2026-05-20 19:53:18 | INFO     | steps.transform:transform_tickets:122 | [Transform] Transformando 108 tickets...
+2026-05-20 19:53:18 | INFO     | steps.transform:transform_tickets:147 | [Transform] Concluído — 108 rows gerados, 0 erros.
+2026-05-20 19:53:18 | INFO     | steps.load:load_tickets:80 | [Load] Iniciando upsert de 108 tickets em 1 chunk(s)...
+2026-05-20 19:53:18 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 1/1 concluído (108 rows).
+2026-05-20 19:53:18 | INFO     | steps.load:load_tickets:97 | [Load] Upsert finalizado — 108 tickets carregados.
+2026-05-20 19:53:19 | INFO     | steps.load:save_last_run:55 | [State] last_run salvo: 2026-05-20T22:52:55Z
+2026-05-20 19:53:19 | INFO     | __main__:run:58 | ============================================================
+2026-05-20 19:53:19 | INFO     | __main__:run:59 | 🏁 ETL concluído. Próxima execução desde: 2026-05-20T22:52:55Z
+2026-05-20 19:53:19 | INFO     | __main__:run:60 | ============================================================
+2026-05-20 20:48:40 | INFO     | __main__:run:28 | ============================================================
+2026-05-20 20:48:40 | INFO     | __main__:run:29 | 🚀 ETL Freshdesk → Supabase — iniciando
+2026-05-20 20:48:40 | INFO     | __main__:run:30 | ============================================================
+2026-05-20 20:48:41 | DEBUG    | steps.load:get_last_run:34 | [State] last_run carregado: 2026-05-20T22:52:55Z
+2026-05-20 20:48:41 | INFO     | __main__:run:34 | Janela de extração: desde 2026-05-20T22:52:55Z
+2026-05-20 20:48:41 | INFO     | steps.extract:sync_agents:23 | [Extract] Sincronizando agentes...
+2026-05-20 20:48:41 | DEBUG    | services.freshdesk:fetch_agents:56 | Buscando agentes no Freshdesk...
+2026-05-20 20:48:41 | DEBUG    | services.freshdesk:fetch_agents:58 | Agentes encontrados: 8
+2026-05-20 20:48:42 | INFO     | steps.extract:sync_agents:44 | [Extract] 8 agentes sincronizados.
+2026-05-20 20:48:42 | INFO     | steps.extract:sync_lookup_fields:87 | [Extract] Sincronizando lookup fields...
+2026-05-20 20:48:42 | DEBUG    | services.freshdesk:fetch_ticket_fields:108 | Buscando ticket fields no Freshdesk...
+2026-05-20 20:48:42 | DEBUG    | services.freshdesk:fetch_ticket_fields:110 | Fields encontrados: 28
+2026-05-20 20:48:42 | INFO     | steps.extract:sync_lookup_fields:106 | [Extract] cf_motivo_da_solicitao — 23 choices sincronizados em 'cs_cancellation_reasons'.
+2026-05-20 20:48:42 | INFO     | steps.extract:sync_lookup_fields:106 | [Extract] cf_degrau_aplicado — 6 choices sincronizados em 'cs_retention_steps'.
+2026-05-20 20:48:42 | INFO     | steps.extract:load_lookup_dicts:58 | [Extract] Carregando lookups na memória...
+2026-05-20 20:48:43 | DEBUG    | steps.extract:load_lookup_dicts:76 | [Extract] Lookups carregados — agents: 8, reasons: 23, steps: 6
+2026-05-20 20:48:43 | INFO     | services.freshdesk:fetch_tickets_since:71 | Buscando tickets atualizados desde 2026-05-20T22:52:55Z
+2026-05-20 20:48:44 | DEBUG    | services.freshdesk:fetch_tickets_since:88 | Página 1 → 40 tickets (total acumulado: 40)
+2026-05-20 20:48:44 | INFO     | services.freshdesk:fetch_tickets_since:99 | Total de tickets extraídos: 40
+2026-05-20 20:48:44 | INFO     | steps.enrich:build_sales_index:30 | [Enrich] Cruzando 27 order_ids com a tabela de eventos...
+2026-05-20 20:48:44 | DEBUG    | steps.enrich:build_sales_index:46 | [Enrich] Chunk 1/1 — 20 rows retornados.
+2026-05-20 20:48:44 | INFO     | steps.enrich:build_sales_index:49 | [Enrich] 20 order_ids encontrados na tabela de eventos.
+2026-05-20 20:48:44 | DEBUG    | steps.enrich:build_sales_index:53 | [Enrich] 7 order_ids sem correspondência em events.
+2026-05-20 20:48:44 | INFO     | steps.transform:transform_tickets:122 | [Transform] Transformando 40 tickets...
+2026-05-20 20:48:44 | INFO     | steps.transform:transform_tickets:147 | [Transform] Concluído — 40 rows gerados, 0 erros.
+2026-05-20 20:48:44 | INFO     | steps.load:load_tickets:80 | [Load] Iniciando upsert de 40 tickets em 1 chunk(s)...
+2026-05-20 20:48:45 | DEBUG    | steps.load:load_tickets:89 | [Load] Chunk 1/1 concluído (40 rows).
+2026-05-20 20:48:45 | INFO     | steps.load:load_tickets:97 | [Load] Upsert finalizado — 40 tickets carregados.
+2026-05-20 20:48:45 | INFO     | steps.load:save_last_run:55 | [State] last_run salvo: 2026-05-20T23:48:43Z
+2026-05-20 20:48:45 | INFO     | __main__:run:59 | ============================================================
+2026-05-20 20:48:45 | INFO     | __main__:run:60 | 🏁 ETL concluído. Próxima execução desde: 2026-05-20T23:48:43Z
+2026-05-20 20:48:45 | INFO     | __main__:run:61 | ============================================================
